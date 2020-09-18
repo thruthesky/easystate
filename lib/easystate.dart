@@ -1,7 +1,13 @@
 library easystate;
+import 'package:rxdart/rxdart.dart';
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+class EasyState {
+
+
+  BehaviorSubject<T> init<T>(T v) {
+    return BehaviorSubject<T>.seeded(v);
+  }
+
 }
+
+
