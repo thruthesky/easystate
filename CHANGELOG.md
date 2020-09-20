@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.11] - 2020. 09. 20.
+
+* Document update with `dartfmt -w .`
+
 ## [0.0.10] - 2020. 09. 20.
 
 * Typo correction
