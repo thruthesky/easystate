@@ -1,8 +1,8 @@
 # Easystate
 
-EasyState easiest and simplest Flutter state manager library for beginners.
+EasyState is the easiest and the simplest Flutter state manager library for beginners.
 
-It is not the perfect state manager but will give you great understanding learn what state management is.
+This is not the perfect state manager, but will give you great understanding about what state management is.
 
 ## Installation
 

@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class CountModel extends EasyState {
   int value = 0;
   increase() {
-    value ++;
+    value++;
     update();
   }
 }
+
 CountModel countModel = CountModel();
 
 void main() {
@@ -30,7 +31,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               'EasyState Counter :',
             ),
-            
             StreamBuilder(
               stream: countModel.stream,
               builder: (context, snapshot) => Text(
