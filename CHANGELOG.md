@@ -1,8 +1,16 @@
 # Changelog
 
-## [0.0.5] - 2020. 09. 20.
+## [0.0.8] - 2020. 09. 20.
 
-* State 를 사용하기 쉽도록 수정
+* Update documentation. Change Korean to English.
+
+## [0.0.7] - 2020. 09. 20.
+
+* Update documentation.
+
+## [0.0.6] - 2020. 09. 20.
+
+* Fix to make it easy to use
 
 ## [0.0.4] - 2020. 09. 19.
 
