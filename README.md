@@ -53,7 +53,7 @@ StreamBuilder(
 ),
 ```
 
-* Experimental. You can use `EasyBuilder` which is merely a wrapper class of `StreamBuilder`.
+* Experimental. You can use `EasyBuilder` which is merely a wrapper class of `StreamBuilder`. It is not recommended to use `EasyBuilder` though since it not standard widget and it takes extra work to learn.
 
 ```dart
 EasyBuilder(
@@ -64,8 +64,6 @@ EasyBuilder(
   model: countModel,
 ),
 ```
-
-But I don't recommend to use it because this is not a standard widget builder and you have to learn it.
 
 * More example.
 
