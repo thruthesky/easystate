@@ -67,6 +67,25 @@ EasyBuilder(
 
 But I don't recommend to use it because this is not a standard widget builder and you have to learn it.
 
+* More example.
+
+  * You can listen the stream and do some logic things without update UI.
+
+``` dart
+  StreamSubscription stream;
+
+  @override
+  void initState() {
+    stream = countModel.stream.listen((value) => setState(() => null));
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    stream.cancel();
+    super.dispose();
+  }
+```
 
 
 ## Reference

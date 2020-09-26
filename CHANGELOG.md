@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.0.13] - 2020. 09. 26.
+
+* No functional change.
+* Update more examples on the documentation.
+
 ## [0.0.12] - 2020. 09. 26.
 
 * Updating documentation.

@@ -1,6 +1,6 @@
 name: easystate
 description: EasyState is the simplest and the easiest state management for Flutter.
-version: 0.0.12
+version: 0.0.13
 homepage: https://github.com/thruthesky/easystate
 
 environment:

@@ -9,7 +9,7 @@ import 'package:rxdart/rxdart.dart';
 /// oppotunity to learn what state management is.
 class EasyState {
   /// The is the stream to observe whenever value changes.
-  dynamic stream;
+  BehaviorSubject stream;
 
   /// Initialize the stream.
   EasyState() {
