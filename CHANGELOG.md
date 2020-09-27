@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.13] - 2020. 09. 26.
+
+* No functional change.
+* Update more examples on the documentation.
+
+## [0.0.12] - 2020. 09. 26.
+
+* Updating documentation.
+* Add experimental `EasyBuilder` widget.
+
 ## [0.0.11] - 2020. 09. 20.
 
 * Document update with `dartfmt -w .`
