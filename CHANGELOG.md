@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.14] - 2020. 09. 28.
+
+* bug fix. `null` error
+
 ## [0.0.13] - 2020. 09. 26.
 
 * No functional change.

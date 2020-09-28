@@ -9,7 +9,7 @@ import 'package:rxdart/rxdart.dart';
 /// oppotunity to learn what state management is.
 class EasyState {
   /// The is the stream to observe whenever value changes.
-  BehaviorSubject stream;
+  BehaviorSubject stream = BehaviorSubject();
 
   /// Initialize the stream.
   EasyState();
@@ -26,7 +26,7 @@ class EasyState {
 /// instead.
 /// [model] is the instance of the model.
 /// [builder] is the widget builder method.
-class EasyBuilder extends StatelessWidget {
+class EasyBuilder<T> extends StatelessWidget {
   EasyBuilder({
     this.model,
     this.builder,
@@ -40,7 +40,7 @@ class EasyBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: model.stream,
-      initialData: model.stream,
+      initialData: model,
       builder: builder,
     );
   }
