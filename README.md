@@ -93,10 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body: Column( childiren: [
-         EasyBuilder<CountModel>( // use it with generic class type.
-            builder: (context, snapshot) => Text(
-              snapshot.data.value.toString(),
+        body: Column( childiren: [
+          EasyBuilder<CountModel>( // use it with generic class type.
+              builder: (context, CountModel model) => Text(
+                model.value.toString(),
               ),
           ),
           floatingActionButton: FloatingActionButton(

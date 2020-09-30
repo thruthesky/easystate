@@ -27,7 +27,7 @@ class EasyState {
     stream.add(this);
   }
 
-  static get<T>() {
+  static T get<T>() {
     return _container.where((element) => element is T).first;
   }
 }
@@ -52,10 +52,11 @@ class EasyBuilder<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    EasyState m = model ?? EasyState.get<T>();
     return StreamBuilder(
-      stream: (model ?? EasyState.get<T>()).stream,
-      initialData: model ?? EasyState.get<T>(),
-      builder: builder,
+      stream: m.stream,
+      initialData: m,
+      builder: (context, snapshot) => builder(context, snapshot.data),
     );
   }
 }

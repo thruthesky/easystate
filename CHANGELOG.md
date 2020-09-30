@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.1] - 2020. 09. 30.
+
+* change - `EasyBuilder` now delivers the instance of model instead of steam snapshot.
+
 ## [0.1.0] - 2020. 09. 30.
 
 * new - `EasyState` is now working with generic class type.
