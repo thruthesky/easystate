@@ -11,6 +11,7 @@ class CountModel extends EasyState {
   }
 }
 
+
 CountModel countModel = CountModel();
 
 void main() {
@@ -35,9 +36,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('EasyState'),
+        title: Text('EasyState Example'),
       ),
       body: Center(
         child: Column(
@@ -47,14 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
               'EasyState Counter :',
             ),
             EasyBuilder(
-              builder: (context, snapshot) => Text(
-                snapshot.data.value.toString(),
+              builder: (context, model) => Text(
+                model.value.toString(),
               ),
               model: countModel,
             ),
             StreamBuilder(
               stream: countModel.stream,
-              initialData: countModel.stream,
+              initialData: countModel,
               builder: (context, snapshot) => Text(
                 snapshot.data.value.toString(),
               ),
