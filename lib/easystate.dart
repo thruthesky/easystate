@@ -3,6 +3,11 @@ library easystate;
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
+
+/// [_container] is the model container
+List<dynamic> _container = [];
+
+
 /// The easiest and simplest Flutter state manager library for beginners.
 ///
 /// This is not a perfect state manager but will give Flutter learners great
@@ -12,13 +17,22 @@ class EasyState {
   BehaviorSubject stream = BehaviorSubject();
 
   /// Initialize the stream.
-  EasyState();
+  EasyState() {
+    /// register the model into container
+    _container.add(this);
+  }
 
   /// Update the listeners.
   update() {
     stream.add(this);
   }
+
+  static get<T>() {
+    return _container.where((element) => element is T).first;
+  }
 }
+
+
 
 /// Builder widget to update UI when model updates.
 ///
@@ -39,9 +53,10 @@ class EasyBuilder<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: model.stream,
-      initialData: model,
+      stream: (model ?? EasyState.get<T>()).stream,
+      initialData: model ?? EasyState.get<T>(),
       builder: builder,
     );
   }
 }
+

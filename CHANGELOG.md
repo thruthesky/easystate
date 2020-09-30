@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.1.0] - 2020. 09. 30.
+
+* new - `EasyState` is now working with generic class type.
+* new - get instance of the model with `EasyState.get<T>`.
+
 ## [0.0.14] - 2020. 09. 28.
 
 * bug fix. `null` error

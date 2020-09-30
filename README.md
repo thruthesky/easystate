@@ -1,14 +1,13 @@
 # EasyState
 
-* EasyState is the easiest and the simplest Flutter state manager library for beginners.
+* EasyState is the easiest and the simplest Flutter state managemnt package for beginners.
 
 * This is not the perfect state manager, but will give you great understanding about what state management is.
 
 * To make EasyState simple,
-  * It does not put the model instance into container unlike others do.
-  * And so, it does not require a special widget builder specifiying generic type to rebiuld UI.
-  * Hence, you don't need to learn those things and becomes deadly simple.
-  * EasyState simply uses the fundamental `StreamBuilder` widget to rebuild UI.
+  * You can create your model,
+  * And use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
+  * Whenever you need to re-render the UI, call `update()`.
 
 ## Installation
 
@@ -19,13 +18,15 @@ dependencies:
   easystate:
 ```
 
-then, import it
+## Examples
+
+
+* Import `easystate.dart`.
 
 ``` dart
-import 'package:get/get.dart';
+import 'package:easystate/easystate.dart';
 ```
 
-## Examples
 
 * Define your model
 
@@ -46,28 +47,69 @@ CountModel countModel = CountModel();
 StreamBuilder(
   stream: countModel.stream,
   initialData: countModel.stream,
-  builder: (context, snapshot) => Text(
-    snapshot.data.value.toString(),
-    style: Theme.of(context).textTheme.headline4,
-  ),
+  builder: (context, snapshot) => Text(snapshot.data.value.toString()),
+),
+floatingActionButton: FloatingActionButton(
+  onPressed: () => countModel.increase(), // trigger UI update.
+  tooltip: 'Increase',
+  child: Icon(Icons.add),
 ),
 ```
+That's it. This is how I recommend to use `EasyState`.
 
-* Experimental. You can use `EasyBuilder` which is merely a wrapper class of `StreamBuilder`. It is not recommended to use `EasyBuilder` though since it not standard widget and it takes extra work to learn.
+### Example of Traditional State Management Pattern
+
+* A lot of state management packages have a common pattern on their usage. That is;
+  * First, create a model
+  * Second, register the model (and put it into container).
+  * Third, render the model value with some custom widget like `Consumer` in `Provider` or `GetBuilder` in `GetX`.
+  * Forth, get instance and do something(or update the UI). `Provider.of()` and `Get.find()` are one of those.
+
+> Why? Because it is more easy with this pattern.
+
+* `EasyState` has also provide the same pattern.
+  * First, create a model.
+  * Second, when the model is instantiated, the model is automactially registered into container. So, you need to simple create the model and instantiate it somewhere. No need to register explicitly.
+  * Third, render the model value with `EasyBuilder` widget.
+  * Forth, to get the instance of the model, do `EasyState.get<T>()`.
+
+
 
 ```dart
-EasyBuilder(
-  builder: (context, snapshot) => Text(
-    snapshot.data.value.toString(),
-    style: Theme.of(context).textTheme.headline4,
-  ),
-  model: countModel,
-),
+class CountModel extends EasyState { // your model
+  int value = 0;
+  increase() {
+    value++;
+    update();
+  }
+}
+
+void main() {
+  CountModel countModel = CountModel(); // instantiate your model
+  runApp(MyApp());
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       body: Column( childiren: [
+         EasyBuilder<CountModel>( // use it with generic class type.
+            builder: (context, snapshot) => Text(
+              snapshot.data.value.toString(),
+              ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              EasyState.get<CountModel>().increase(); // get instance and re-render
+            }
+          ),
+       ])
 ```
 
-* More example.
+### Listening the stream event
 
-  * You can listen the stream and do some logic things without update UI.
+* You can listen the stream and do some logic without updating UI.
 
 ``` dart
   StreamSubscription stream;
@@ -88,7 +130,7 @@ EasyBuilder(
 
 ## Reference
 
-* See [Easystate Sample App](https://github.com/thruthesky/easystate_sample) for example.
+* See [Easystate Sample App](https://github.com/thruthesky/easystate_sample/tree/master/lib) for examples.
 
 
 
