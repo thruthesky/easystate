@@ -3,10 +3,8 @@ library easystate;
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
-
 /// [_container] is the model container
 List<dynamic> _container = [];
-
 
 /// The easiest and simplest Flutter state manager library for beginners.
 ///
@@ -31,8 +29,6 @@ class EasyState {
     return _container.where((element) => element is T).first;
   }
 }
-
-
 
 /// Builder widget to update UI when model updates.
 ///
@@ -60,4 +56,3 @@ class EasyBuilder<T> extends StatelessWidget {
     );
   }
 }
-

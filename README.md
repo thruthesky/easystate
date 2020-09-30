@@ -4,10 +4,10 @@
 
 * This is not the perfect state manager, but will give you great understanding about what state management is.
 
-* To make EasyState simple,
-  * You can create your model,
-  * And use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
-  * Whenever you need to re-render the UI, call `update()`.
+* To use `EasyState`,
+  * Create your model,
+  * Use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
+  * Call `update()` whenever you need to re-render the UI.
 
 ## Installation
 
