@@ -38,10 +38,19 @@ class CountModel extends EasyState {
     update();
   }
 }
-CountModel countModel = CountModel();
 ```
 
-* And consume it with `StreamBuidler`.
+* Create instance before using it.
+
+```dart
+CountModel countModel;
+void main() {
+  countModel = CountModel();
+  runApp(MyApp());
+}
+```
+
+* And use it with `StreamBuidler`.
 
 ```dart
 StreamBuilder(
@@ -57,7 +66,7 @@ floatingActionButton: FloatingActionButton(
 ```
 That's it. This is how I recommend to use `EasyState`.
 
-### Example of Traditional State Management Pattern
+## Common State Management Pattern
 
 * A lot of state management packages have a common pattern on their usage. That is;
   * First, create a model
@@ -69,9 +78,9 @@ That's it. This is how I recommend to use `EasyState`.
 
 * `EasyState` has also provide the same pattern.
   * First, create a model.
-  * Second, when the model is instantiated, the model is automactially registered into container. So, you need to simple create the model and instantiate it somewhere. No need to register explicitly.
-  * Third, render the model value with `EasyBuilder` widget.
-  * Forth, to get the instance of the model, do `EasyState.get<T>()`.
+  When the model is instantiated, the model is automactially registered into container. So, you need to simple create the model and instantiate it somewhere. No need to register explicitly.
+  * Second, render the model value with `EasyBuilder` widget.
+  * Third, to get the instance of the model, do `EasyState.get<T>()`.
 
 
 
@@ -85,7 +94,7 @@ class CountModel extends EasyState { // your model
 }
 
 void main() {
-  CountModel countModel = CountModel(); // instantiate your model
+  CountModel countModel = CountModel(); // instantiate your model.
   runApp(MyApp());
 }
 
@@ -116,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    stream = countModel.stream.listen((value) => setState(() => null));
+    stream = countModel.stream.listen((value) { /* do something */ });
     super.initState();
   }
 

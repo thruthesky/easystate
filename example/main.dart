@@ -11,9 +11,9 @@ class CountModel extends EasyState {
   }
 }
 
-CountModel countModel = CountModel();
-
+CountModel countModel;
 void main() {
+  countModel = CountModel();
   runApp(MyApp());
 }
 
@@ -35,6 +35,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text('EasyState Example'),

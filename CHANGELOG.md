@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.2] - 2020. 10. 01.
+
+* doc - documentation update. No functional change.
+
 ## [0.1.2] - 2020. 09. 30.
 
 * doc - documentation updated by `dartfmt -w .`
