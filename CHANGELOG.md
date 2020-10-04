@@ -1,6 +1,11 @@
 # Changelog
 
-## [0.1.2] - 2020. 10. 01.
+## [0.1.4] - 2020. 10. 04.
+
+* The model container does not contain two same type of model.
+* Documentation update.
+
+## [0.1.3] - 2020. 10. 01.
 
 * doc - documentation update. No functional change.
 

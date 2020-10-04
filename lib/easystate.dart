@@ -16,8 +16,13 @@ class EasyState {
 
   /// Initialize the stream.
   EasyState() {
+  
     /// register the model into container
-    _container.add(this);
+    int found = _container.indexWhere((element) => element.runtimeType == this.runtimeType);
+    // print('found: $found');
+    if ( found == -1 ) { 
+      _container.add(this);
+    }
   }
 
   /// Update the listeners.

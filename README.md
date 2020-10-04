@@ -1,6 +1,6 @@
 # EasyState
 
-* EasyState is the easiest and the simplest Flutter state managemnt package for beginners.
+* EasyState is the easiest and the simplest Flutter state management package for beginners.
 
 * This is not the perfect state manager, but will give you great understanding about what state management is.
 
@@ -38,9 +38,16 @@ class CountModel extends EasyState {
     update();
   }
 }
+class TestModel extends EasyState {
+  int value = 100;
+  decrease() {
+    value--;
+    update();
+  }
+}
 ```
 
-* Create instance before using it.
+* Create instance before using it. You can instantiate the model any where before use.
 
 ```dart
 CountModel countModel;
@@ -49,6 +56,17 @@ void main() {
   runApp(MyApp());
 }
 ```
+```dart
+  @override
+  Widget build(BuildContext context) {
+    TestModel(); // You can instantiate before use.
+     return Scaffold({...});
+  }
+```
+
+
+
+
 
 * And use it with `StreamBuidler`.
 
