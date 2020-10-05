@@ -84,12 +84,12 @@ floatingActionButton: FloatingActionButton(
 ```
 That's it. This is how I recommend to use `EasyState`.
 
-## Common State Management Pattern
+## Common Pattern of State Management
 
-* A lot of state management packages have a common pattern on their usage. That is;
+* A lot of state management packages have a common pattern on their usage. Which is;
   * First, create a model
   * Second, register the model (and put it into container).
-  * Third, render the model value with some custom widget like `Consumer` in `Provider` or `GetBuilder` in `GetX`.
+  * Third, render the model value with custom widget like `Consumer` in `Provider` or `GetBuilder` in `GetX`.
   * Forth, get instance and do something(or update the UI). `Provider.of()` and `Get.find()` are one of those.
 
 > Why? Because it is more easy with this pattern.
