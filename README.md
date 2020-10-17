@@ -1,34 +1,32 @@
 # EasyState
 
-* EasyState is the easiest and the simplest Flutter state management package for beginners.
+- EasyState is the easiest and the simplest Flutter state management package for beginners.
 
-* This is not the perfect state manager, but will give you great understanding about what state management is.
+- This is not the perfect state manager, but will give you great understanding about what state management is.
 
-* To use `EasyState`,
-  * Create your model,
-  * Use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
-  * Call `update()` whenever you need to re-render the UI.
+- To use `EasyState`,
+  - Create your model,
+  - Use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
+  - Call `update()` whenever you need to re-render the UI.
 
 ## Installation
 
 Add EasyState to your pubspec.yaml file:
 
-``` yaml
+```yaml
 dependencies:
   easystate:
 ```
 
 ## Examples
 
+- Import `easystate.dart`.
 
-* Import `easystate.dart`.
-
-``` dart
+```dart
 import 'package:easystate/easystate.dart';
 ```
 
-
-* Define your model
+- Define your model
 
 ```dart
 class CountModel extends EasyState {
@@ -47,7 +45,7 @@ class TestModel extends EasyState {
 }
 ```
 
-* Create instance before using it. You can instantiate the model any where before use.
+- Create instance before using it. You can instantiate the model any where before use.
 
 ```dart
 CountModel countModel;
@@ -56,6 +54,7 @@ void main() {
   runApp(MyApp());
 }
 ```
+
 ```dart
   @override
   Widget build(BuildContext context) {
@@ -64,11 +63,7 @@ void main() {
   }
 ```
 
-
-
-
-
-* And use it with `StreamBuidler`.
+- And use it with `StreamBuidler`.
 
 ```dart
 StreamBuilder(
@@ -82,25 +77,24 @@ floatingActionButton: FloatingActionButton(
   child: Icon(Icons.add),
 ),
 ```
+
 That's it. This is how I recommend to use `EasyState`.
 
 ## Common Pattern of State Management
 
-* A lot of state management packages have a common pattern on their usage. Which is;
-  * First, create a model
-  * Second, register the model (and put it into container).
-  * Third, render the model value with custom widget like `Consumer` in `Provider` or `GetBuilder` in `GetX`.
-  * Forth, get instance and do something(or update the UI). `Provider.of()` and `Get.find()` are one of those.
+- A lot of state management packages have a common pattern on their usage. Which is;
+  - First, create a model
+  - Second, register the model (and put it into container).
+  - Third, render the model value with custom widget like `Consumer` in `Provider` or `GetBuilder` in `GetX`.
+  - Forth, get instance and do something(or update the UI). `Provider.of()` and `Get.find()` are one of those.
 
-> Why? Because it is more easy with this pattern.
+> Why? Because it is more easy with the pattern.
 
-* `EasyState` has also provide the same pattern.
-  * First, create a model.
-  When the model is instantiated, the model is automactially registered into container. So, you need to simple create the model and instantiate it somewhere. No need to register explicitly.
-  * Second, render the model value with `EasyBuilder` widget.
-  * Third, to get the instance of the model, do `EasyState.get<T>()`.
-
-
+- `EasyState` has also provide the same pattern.
+  - First, create a model.
+  - Second, instantiate the model class before calling `runApp()` or before you use it.
+  - Third, render the model value with `EasyBuilder` widget.
+  - Forth, to get the instance of the model, do `EasyState.get<T>()`.
 
 ```dart
 class CountModel extends EasyState { // your model
@@ -136,9 +130,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
 ### Listening the stream event
 
-* You can listen the stream and do some logic without updating UI.
+- You can listen the stream and do some logic without updating UI.
 
-``` dart
+```dart
   StreamSubscription stream;
 
   @override
@@ -154,13 +148,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 ```
 
-
 ## Reference
 
-* See [Easystate Sample App](https://github.com/thruthesky/easystate_sample/tree/master/lib) for examples.
-
-
+- See [Easystate Sample App](https://github.com/thruthesky/easystate_sample/tree/master/lib) for examples.
 
 ## Developers
 
-* To develop easystate package, clond `https://github.com/thruthesky/easystate` in your project and test it.
+- To develop easystate package, clond `https://github.com/thruthesky/easystate` in your project and test it.

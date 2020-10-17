@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.5] - 2020. 10. 18.
+
+* Typo fix.
+
 ## [0.1.4] - 2020. 10. 04.
 
 * The model container does not contain two same type of model.
