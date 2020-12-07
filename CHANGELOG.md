@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.0] - 2020. 12. 08.
+
+- Easystate goes stable.
+- Dependency update.
+
 ## [0.1.6] - 2020. 10. 18.
 
 - Document has updated.
