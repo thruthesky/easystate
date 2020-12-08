@@ -90,7 +90,7 @@ That's it. This is how I recommend to use `EasyState`.
 
 > Why? Because it is more easy with the pattern.
 
-- `EasyState` has also provide the same pattern.
+- `EasyState` also provides the same pattern.
   - First, create a model.
   - Second, instantiate the model class before calling `runApp()` or before you use it.
   - Third, render the model value with `EasyBuilder` widget.

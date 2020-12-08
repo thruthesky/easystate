@@ -1,9 +1,13 @@
 # Changelog
 
+## [1.0.1] Typo
+
+- Typo fix on document.
+
 ## [1.0.0] - 2020. 12. 08.
 
 - Easystate goes stable.
-- Dependency update.
+- rxdart dependency update.
 
 ## [0.1.6] - 2020. 10. 18.
 
