@@ -1,13 +1,16 @@
-# EasyState
+# EasyState: A Simple and Intuitive State Management Package
 
-- EasyState is the easiest and the simplest Flutter state management package for beginners.
+EasyState is more than just a user-friendly state manager. It's a tool designed to simplify the learning process of Flutter's State Management system.
 
-- This is not the perfect state manager, but will give you great understanding about what state management is.
 
-- To use `EasyState`,
-  - Create your model,
-  - Use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
-  - Call `update()` whenever you need to re-render the UI.
+
+
+Many Flutter developers start their journey with Provider, often without a deep understanding of its internal mechanism. On my third day of using Flutter, I decided to create a simpler alternative for my own learning - and thus, EasyState was born.
+
+
+For the past four years since EasyState's inception, I hesitated to recommend it for production apps, primarily because I wasn't using it in my own projects. However, times have changed. Recently, I've felt a strong need for a simpler state management tool. Now, I confidently use EasyState in my production apps and encourage others to experience its simplicity and effectiveness.
+
+
 
 ## Installation
 
@@ -17,6 +20,16 @@ Add EasyState to your pubspec.yaml file:
 dependencies:
   easystate:
 ```
+
+## How to use
+
+
+- To use `EasyState`,
+  - Create your model,
+  - Use it with `StreamBuilder` to render UI. (You may optioanlly use `EasyBuilder`.)
+  - Call `update()` whenever you need to re-render the UI.
+
+
 
 ## Examples
 
