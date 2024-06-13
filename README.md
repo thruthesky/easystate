@@ -126,6 +126,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
+
+
+## Listening the event
+
+You can use `addListener` to the model. If there is any chance that the context is not ready, you can delay for the attaching listener.
+
+And don't forget to remove the listener.
+
+```dart
+class _ForumScreenState extends State<ForumScreen> {
+    scheduleMicrotask(() {
+      EasyState.of<AppState>(context).addListener(listener);
+    });
+  }
+
+  listener() {
+    // ...
+  }
+  @override
+  void dispose() {
+    EasyState.of<AppState>(context).removeListener(listener);
+  }
+```
+
 ## Reference
 
 - See [Easystate Sample App](https://github.com/thruthesky/easystate_sample/tree/master/lib) for examples.
