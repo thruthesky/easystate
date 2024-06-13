@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.3] ChangeNotifier
+
+- Refactor. Minor code improvement.
+
 ## [1.0.2] ChangeNotifier
 
 - Refactor. Easystate is now built upon ChangeNotifier. Rxdart has been removed.
