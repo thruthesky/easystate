@@ -9,17 +9,20 @@ class EasyState<T> extends InheritedWidget {
     required super.child,
   });
 
-  @override
-  bool updateShouldNotify(EasyState oldWidget) {
-    return state != oldWidget.state;
+  static EasyState<T>? maybeOf<T>(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<EasyState<T>>();
   }
 
   static T of<T>(BuildContext context) {
-    final EasyState<T>? result =
-        context.dependOnInheritedWidgetOfExactType<EasyState<T>>();
+    final EasyState<T>? result = maybeOf<T>(context);
     if (result == null) {
       throw Exception('Could not find EasyState<$T> in the widget tree');
     }
     return result.state;
+  }
+
+  @override
+  bool updateShouldNotify(EasyState oldWidget) {
+    return state != oldWidget.state;
   }
 }
