@@ -24,17 +24,15 @@ class NextState with ChangeNotifier {
 
   void increment() {
     count++;
-    print('next count: $count');
     notifyListeners();
   }
 }
 
-class LastState with ChangeNotifier {
+class CherryCounterState with ChangeNotifier {
   int count = 0;
 
   void increment() {
     count++;
-    print('last count: $count');
     notifyListeners();
   }
 }
@@ -115,7 +113,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Increment Next Counter"),
             ),
             SizedBox(height: 20),
-            NewWidget(),
+            EasyState(
+              state: CherryCounterState(),
+              child: CherryCounterWidget(),
+            ),
+            SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute(
@@ -143,55 +145,64 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class NewWidget extends StatefulWidget {
-  const NewWidget({
+class CherryCounterWidget extends StatefulWidget {
+  const CherryCounterWidget({
     super.key,
   });
 
   @override
-  State<NewWidget> createState() => _NewWidgetState();
+  State<CherryCounterWidget> createState() => _CherryCounterWidgetState();
 }
 
-class _NewWidgetState extends State<NewWidget> {
-  final lastState = LastState();
+class _CherryCounterWidgetState extends State<CherryCounterWidget> {
   int count = 0;
-  @override
-  void initState() {
-    super.initState();
+  CherryCounterState get cherryState =>
+      EasyState.of<CherryCounterState>(context);
 
-    scheduleMicrotask(() {
-      lastState.addListener(worker);
-    });
+  @override
+  void didChangeDependencies() {
+    print('---> didChangeDependencies');
+    cherryState
+      ..removeListener(worker)
+      ..addListener(worker);
+    super.didChangeDependencies();
+  }
+
+  @override
+  void didUpdateWidget(covariant CherryCounterWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    print('---> didUpdateWidget');
   }
 
   @override
   void dispose() {
-    lastState.removeListener(worker);
+    cherryState.removeListener(worker);
     super.dispose();
   }
 
   worker() {
-    count = lastState.count;
+    count = cherryState.count;
+    print('worker: $count');
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return EasyState(
-      state: lastState,
-      child: EasyStateBuilder<LastState>(
-        builder: (context, state) => Column(
-          children: [
-            Text('Last Count: ${state.count}, My Count: $count'),
-            Theme(
-              data: Theme.of(context),
-              child: ElevatedButton(
-                onPressed: state.increment,
-                child: Text('Increment Last Conter'),
-              ),
-            )
-          ],
-        ),
+    print('---> build');
+    return EasyStateBuilder<CherryCounterState>(
+      builder: (context, state) => Column(
+        children: [
+          Text(
+              'Cherry Count: ${state.count}, Cherry Count with Listener: $count'),
+          Theme(
+            data: Theme.of(context),
+            child: ElevatedButton(
+              onPressed: state.increment,
+              child: Text('Increment Cherry Counter'),
+            ),
+          )
+        ],
       ),
     );
   }
